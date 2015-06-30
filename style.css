@@ -1,0 +1,315 @@
+/*
+Theme Name: myTheme
+Theme URI: ---
+Author: Erik Lindow
+Author URI: ---
+Description: A practice theme to learn wordpress theme development. 
+			:Aiming for a responsive design that should look atleast ok on all devices.
+Version: 1.0
+License: ---
+License URI: ---
+Tags: practice
+Text Domain: ---
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+
+/* GOOGLE FONTS */
+@import url(http://fonts.googleapis.com/css?family=Raleway);
+/* ___________ */
+
+/* Page setup */
+*, *:before, *:after {
+  /* Cheers to CSS-tricks.com */
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box; 
+  box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "Raleway", sans-serif, serif;
+	color: #000;
+}
+html {
+	height: 100%;
+	min-height: 100%;
+}
+body { 
+	height: 100%;
+	min-height: 100%;
+	text-align: center;
+	background: -webkit-linear-gradient(-45deg, #483D8B, #6F3D8B); /* For Safari 5.1 to 6.0 */
+  	background: -o-linear-gradient(-45deg, #483D8B, #6F3D8B); /* For Opera 11.1 to 12.0 */
+  	background: -moz-linear-gradient(-45deg, #483D8B, #6F3D8B); /* For Firefox 3.6 to 15 */
+  	background: linear-gradient(-45deg, #483D8B, #6F3D8B); /* Standard syntax (must be last) */
+}
+/*********/
+
+/* General styles */
+a {
+	border-bottom: 1px solid transparent;
+	padding: 0.2rem;
+}
+a, a:hover, a:visited, a:active, a:focus {
+	color: blue;
+	text-decoration: none;
+}
+a:hover {
+	border-bottom: 1px solid blue;
+}
+ul, ol {
+	list-style: none;
+}
+/*****************/ 
+
+/* Class and ID styles */
+
+/**********
+ Section styles
+***********/
+#wrapper { 
+	display: block; 
+	width:90%; 
+	max-width: 1500px;
+	margin:0px 
+	auto;
+	margin-top: 3rem; 
+	box-shadow: 0px 0px 5px #000;
+}
+@media screen and(max-width: 900px) {
+	#wrapper {
+		width: 100%;
+		margin-top: 0;
+	}
+}
+/* On small screens I want the sidebar to disappear, and the content area to take full width 
+	All the stuff in the sidebar, archive and categories, can still be accessed from the menu */
+@media screen and(max-width: 700px) {
+	#sidebar {
+		display: none;
+	}
+	#content {
+		min-width: 100%;
+	}
+}
+
+#header { 
+	background: #fff;
+	border-bottom: 1px dashed #333;
+}
+
+/* The main area containing the posts */
+#content { 
+	width: 75%; 
+	float: left; 
+	background: #fff;
+}
+
+/* Sidebar used to display things like categories and archive links etc */
+#sidebar { 
+	width: 25%; 
+	float: right; 
+	background: #fff;
+	border-left: 1px dashed #333;
+	height: 100%;
+	min-height: 100%;
+}
+
+#delimiter { 
+	clear: both; 
+}
+
+/* The footer positioned at the bottom of all pages. Display information about the site */
+#footer { 
+	margin-top: 1em;
+}
+#footer p.footer-info-big {
+	color: #fff; 
+	margin-top: 1em;
+	font-size: 1.5em;
+	opacity: 0.4;
+}
+#footer p.footer-info {
+	color: #fff;
+	opacity: 0.4;
+}
+#footer a {
+	color: #fff;
+}
+#footer a:hover {
+	border-color: #fff;
+}
+
+.area-title {
+	font-size: 1.5em;
+	text-decoration: underline;
+}
+
+/* For 'quickfix' text alignment */
+.left {
+	text-align: left;
+}
+.center {
+  	text-align: center;
+}
+.right {
+	text-align: right;
+}
+
+/* A class for saying that a block of content should be 
+	visually separated from other elements */
+.separated {
+	border-bottom: 1px dashed #000;
+	padding-bottom: 2em;
+}
+.separated * {
+	margin-top: 0.3em;
+}
+/* The slogan visible below the webpage title */
+.slogan-top {
+	margin-top: 0.5em;
+	opacity: 0.7;
+	font-style: italic;
+	font-size: 0.8em;
+}
+.slogan-top:before {
+	content: "-";
+}
+
+h1.header-title {
+	display: inline-block;
+}
+/* A bold text just above normal paragraph size */
+p.small-title {
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+/* A horisontal list with items separated by | */
+ul.row-list {
+	width: 100%;
+}
+ul.row-list li {
+	display: inline;
+}
+/* Separate elements with character */
+ul.row-list li:before {
+	content: " | ";
+}
+/* Skip the separator before the first element */
+ul.row-list li:first-child:before {
+	content: "";
+}
+
+/***********
+ POST-related stuff
+************/
+
+/* This is wrapping the posts */
+.post {
+	border-bottom: 1px solid #333;
+}
+.post:nth-child(2n) {
+}
+.post:last-child {
+	border-bottom: 10px solid transparent;
+}
+/* A small cursive text. Used to display post date */
+.post-desc {
+	font-size: 0.8em;
+	font-style: italic;
+	color: #666;
+}
+.post a:hover img {
+	border-bottom: none;
+}
+/* A posts title, big and fancy */
+.post-title {
+	font-size: 2em;
+
+}
+
+
+/************************************ 
+Styles for the full page navigation *
+*************************************/
+.hide {
+  	display: none;
+}
+.show {
+  	display: block;
+}
+.nav-toggle-open {
+	display: inline-block;
+	cursor: pointer;
+	float: left;
+	/* background: #fff; /* because it can 'disappear' when over dark background */ 
+}
+.nav-toggle-close {
+	position: fixed;
+	left: 0;
+	top: 0;
+  	cursor: pointer;
+}
+.nav-toggle-close {
+	z-index: 15;
+  	background: none;
+}
+.full-overlay {
+  	top: 0;
+  	width: 100%;
+  	height: 100%;
+  	min-width: 100%;
+  	min-height: 100%;
+  	position: fixed;
+  	z-index: 10;
+  	background: -webkit-linear-gradient(-45deg, #483D8B, #6F3D8B); /* For Safari 5.1 to 6.0 */
+  	background: -o-linear-gradient(-45deg, #483D8B, #6F3D8B); /* For Opera 11.1 to 12.0 */
+  	background: -moz-linear-gradient(-45deg, #483D8B, #6F3D8B); /* For Firefox 3.6 to 15 */
+  	background: linear-gradient(-45deg, #483D8B, #6F3D8B); /* Standard syntax (must be last) */
+  	/*background-color: #46D1A3;*/
+}
+.full-overlay h1 {
+  text-align: center;
+  user-select: none; /* Is this safe? */
+}
+ul#nav {
+  	display: block;
+  	position: fixed;
+  	top: 50%;
+  	left: 50%;
+  	margin-left: -105px;
+  	margin-top: -150px;
+  	text-align: center;
+  	list-style-type: none;
+}
+.full-overlay ul li {
+  	min-width: 100%;
+  	min-height: 100%;
+}
+.full-overlay ul li a {
+  	font-family: Raleway, sans-serif;
+  	display: block;
+  	text-decoration: none;
+  	text-transform: uppercase;
+  	text-align: center;
+  	font-size: 2em;
+  	line-height: 60px;
+  	color: #46D1A3;
+  	/*color: #A346D1; */
+  	border: 3px solid transparent;
+  	padding-left: 1rem;
+  	padding-right: 1rem;
+}
+.full-overlay ul li a:hover {
+	border: 3px solid #46D1A3;
+  	/*border: 3px solid #A346D1; */
+  	background: none;
+}
+/* 
+End of full page navigtion styles 
+*/
